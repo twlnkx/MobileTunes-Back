@@ -6,7 +6,7 @@ function authJwt() {
     return jwt({
         secret,
         algorithms: ['HS256'],
-        // isRevoked: isRevoked
+        isRevoked: isRevoked
     })
         .unless({
             path: [
@@ -26,7 +26,7 @@ function authJwt() {
                     url: /\/public\/uploads(.*)/,
                     methods: ['GET', 'OPTIONS', 'POST']
                 },
-                `${api}/users`,
+                // `${api}/users`,
                 `${api}/users/login`,
                 `${api}/users/register`,
             ]
